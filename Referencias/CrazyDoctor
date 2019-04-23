@@ -1,0 +1,37 @@
+import java.util.Random;
+
+// combinando duas interfaces para IPatient
+public interface IDoctor extends IEnquirer, IResponderReceptacle, ITableProducerReceptacle {
+}
+
+public class CrazyDoctor implements IDoctor {
+    private int patientN = 0;
+
+    private ITableProducer producer;
+    private IResponder responder;
+  
+    public void connect(ITableProducer producer) {
+        this.producer = producer;
+    }
+    
+    public void connect(IResponder responder) {
+        this.responder = responder;
+    }
+        
+    public void startInterview() {
+        String attributes[] = producer.requestAttributes();
+        String instances[][] = producer.requestInstances();
+
+        patientN = (int)(Math.random() * instances.length);
+        
+        System.out.println("Doctor guess: " + patientN);
+        
+        for (int a = 0; a < attributes.length - 1; a++)
+            System.out.println("Question: " + responder.ask(attributes[a]));
+
+        System.out.println("Disease guess: " + instances[patientN][attributes.length - 1]);
+        boolean result = responder.finalAnswer(instances[patientN][attributes.length - 1]);
+        System.out.println("Result: " + ((result) ? "I am right =)" : "I am wrong =("));
+    }
+    
+}
