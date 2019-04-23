@@ -1,0 +1,12 @@
+public interface IResponder {
+    public String ask(String question);
+    public boolean finalAnswer(String answer);
+}
+
+public interface IResponderReceptacle {
+    public void connect(IResponder responder);
+}
+
+public interface IEnquirer {
+    public void startInterview();
+}
