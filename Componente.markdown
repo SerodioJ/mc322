@@ -68,5 +68,3 @@
 |------|--------|
 |`dataRunner`| Recebe como parâmetros a árvore e a matriz de frequência e percorre a árvore procurando por nós folha sem diagnósticos quando encontra um desses nós chama o método `dataFiller`|
 |`dataFiller`|  Recebe como parâmetros a árvore e a matriz de frequência e completa o nó com melhor diagnóstico. |
-|`readFrequency`| |
-|`readTree`| Lê o arquivo texto e retorna a árvore de diagnóstico|
