@@ -1,5 +1,15 @@
-# Projeto MC322
+# Projeto MC322 - Clube do Hardware
+196163 - Douglas Daisuke Kaneiwa Yoshioka
 
+204759 - Pedro Strambeck Nogueira 
+
+207267 - Willian Takayuki Ozako
+
+218548 - João Alberto Moreira Seródio
+
+220120 - Leonardo Livrare Martins
+
+220650 - Lucas B. A. Farias
 
 ## Componente DataOrganizer
 |Campo | Valor|
