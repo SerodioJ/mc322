@@ -1,5 +1,6 @@
 # Projeto MC322
 
+
 ## Componente DataOrganizer
 |Campo | Valor|
 |------|--------|
@@ -8,16 +9,19 @@
 |Objetivo|Organizar os dados da tabela para facilitar o diagnóstico|
 |Interface|IDataFilter, ITreeMaker|
 
+
 ### Interface IDataFilter
 |Método| Objetivo|
 |------|--------|
 |`diseaseFilter`|Recebe como parâmetro a tabela de diagnósticos e retorna as possíveis doenças em forma de vetor|
 |`symptomFilter`|O parâmetro é a tabela do componente DataSet e o vetor das doenças da tabela, retorna uma tabela que aparece a frequência de cada sintoma por doença, por exemplo apareceram 3 casos de pacientes com língua amarela que apresentaram a doença bite_deficiet |
 
+
 ### Interface ITreeMaker
 |Método| Objetivo|
 |------|--------|
 |`treeMaker`|Recebe o vetor de doenças e a matriz de frequência de sintomas e retorna uma árvore de diagnóstico, cujos nós internos são perguntas e os nós folhas são os diagnósticos finais.|
+
 
 
 ## Componente UserInterface
@@ -28,10 +32,12 @@
 |Objetivo|Criar animação das interações entre o médico e o paciente|
 |Interface|IAnimation|
 
+
 ### Interface IAnimation
 |Método| Objetivo|
 |------|--------|
 |`story`|Recebe como parâmetro o vetor que armazena cada diálogo e o vetor que indica o falante, ou seja, para  aposição 1 o primeiro vetor tem "Hi" e o segundo vetor "doctor", então o doutor disse "Hello". |
+
 
 
 ## Componente FileUsage
@@ -60,7 +66,6 @@
 |Autores|João Seródio, Willian Ozako|
 |Objetivo|Completar os nós folha vazios da árvore|
 |Interface|IDiagnosticCompleter|
-
 
 
 ### Interface IDiagnosticCompleter
