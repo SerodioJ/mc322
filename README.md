@@ -1,7 +1,7 @@
 # Projeto MC322
 
 ## Componente DataOrganizer
-|**Campo** | ***Valor**|
+|Campo | Valor|
 |------|--------|
 |Classe|tbd|
 |Autores|João Seródio, Leonardo Livrare|
