@@ -37,7 +37,7 @@
 ## Componente UserInterface
 |Campo | Valor|
 |------|--------|
-|Classe|tdb|
+|Classe|pt.userinterface|
 |Autores|Willian Ozako, Lucas, Douglas Yoshioka|
 |Objetivo|Criar animação das interações entre o médico e o paciente|
 |Interface|IAnimation|
@@ -47,6 +47,10 @@
 |Método| Objetivo|
 |------|--------|
 |`story`|Recebe como parâmetro o vetor que armazena cada diálogo e o vetor que indica o falante, ou seja, para  aposição 1 o primeiro vetor tem "Hi" e o segundo vetor "doctor", então o doutor disse "Hello". |
+|`setWindowName`| Recebe como parâmetro `name` - String -  e nomeia a janela da interface com `name`. |
+|`setTempo`|Recebe como parâmetro String `v` que deve ser igual em valor à `slow`,`fast` ou  `default`. Ele configura a velocidade do texto "corrido"|
+|`setPacientName`|Recebe como parâmetro a String `pacName` que é o nome do paciente, guarda esse nome para ser impresso na interface gráfica. |
+|`setDocName`|Recebe como parâmetro a String `docName` que é o nome do doutor, guardando o nome para ser impresso na interface gráfica. |
 
 
 
