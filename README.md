@@ -42,12 +42,13 @@
 |Objetivo|Criar animação das interações entre o médico e o paciente|
 |Interface|IAnimation|
 
+![](ezgif.com-video-to-gif(1).gif)
 
 ### Interface IAnimation
 |Método| Objetivo|
 |------|--------|
-|`story`|Recebe como parâmetro o vetor que armazena cada diálogo e o vetor que indica o falante, ou seja, para  aposição 1 o primeiro vetor tem "Hi" e o segundo vetor "doctor", então o doutor disse "Hello". |
-|`setWindowName`| Recebe como parâmetro `name` - String -  e nomeia a janela da interface com `name`. |
+|`story`|Recebe como parâmetro dois vetores, o primeiro que armazena as falas das personagens e o segundo registra quem fala na n-ésima fala. Exemplo: n-ésima posição do 1o vetor - "You have smallpox." - e na n-ésima posição do 2o vetor - "doctor" - logo fica: "Doctor: You have smallpox."**IMPORTANTE:** Para gerar destaque em uma expressão como o nome da doença ou o do sintoma, coloque a expressão entre asteriscos(*). EX: "You have \*smallpox\*." -> "You have **smallpox**." |
+|`setWindowName`| Altera/adiciona título da janela da interface. Para isso ele recebe uma String `name` que armazena o nome desejado. |
 |`setTempo`|Recebe como parâmetro String `v` que deve ser igual em valor à `slow`,`fast` ou  `default`. Ele configura a velocidade do texto "corrido"|
 |`setPacientName`|Recebe como parâmetro a String `pacName` que é o nome do paciente, guarda esse nome para ser impresso na interface gráfica. |
 |`setDocName`|Recebe como parâmetro a String `docName` que é o nome do doutor, guardando o nome para ser impresso na interface gráfica. |
