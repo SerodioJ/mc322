@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pt.userinterface;
+package pt.componentes.userinterface;
 
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
@@ -41,13 +41,13 @@ public class Animation extends javax.swing.JFrame implements IAnimation{
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton(new javax.swing.ImageIcon("src/main/java/pt/userinterface/Untitled.jpg"));
+        jButton2 = new javax.swing.JButton(new javax.swing.ImageIcon("src/main/java/pt/componentes/userinterface/Untitled.jpg"));
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
 
         setSize(new java.awt.Dimension(768, 600));
 
-        jButton2.setIcon(new javax.swing.ImageIcon("src/main/java/pt/userinterface/Untitled.jpg"));
+        jButton2.setIcon(new javax.swing.ImageIcon("src/main/java/pt/componentes/userinterface/Untitled.jpg"));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -236,7 +236,7 @@ public class Animation extends javax.swing.JFrame implements IAnimation{
         this.falas = falas;
         this.personagem = personagem;
         max = falas.length;
-        jLabel1.setIcon(new javax.swing.ImageIcon("src/main/java/pt/userinterface/Webp.net-resizeimage.jpg"));
+        jLabel1.setIcon(new javax.swing.ImageIcon("src/main/java/pt/componentes/userinterface/Webp.net-resizeimage.jpg"));
         //jButton2.setIcon(new javax.swing.ImageIcon("src/main/java/pt/userinterface/Untitled.png"));
 
 
