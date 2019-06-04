@@ -12,4 +12,3 @@ import java.util.List;
 public interface IDataFilter{
 	List diseaseFilter(String[][] instances);
 	int[][] symptomFilter(String[][] instances, List diseases);
-}

@@ -10,6 +10,6 @@ package pt.componentes.diagnosticcompleter;
 import pt.componentes.node.Tree;
 
 public interface IDiagnosticCompleter{
-	Tree dataRunner(Tree treeNode, String[][]symptomFrequency);
-	void dataFiller(Tree treeNode, String[][]symptomFrequency);
+	public Tree dataRunner(Tree treeNode, String[][]symptomFrequency);
+	public void dataFiller(Tree treeNode, String[][]symptomFrequency);
 }
