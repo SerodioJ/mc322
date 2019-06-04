@@ -1,13 +1,15 @@
 package pt.componentes.dataorganizer;
 
+import java.util.List;
+
 /**
- *DataFilter tem como função filtrar os dados da tabela, retornando um vetor das doenças únicas da tabela
- *e uma matriz de frequência de sintomas, que serão utilizados na construção da árvore.
+ *DataFilter tem como funÃ§Ã£o filtrar os dados da tabela, retornando um vetor das doenÃ§as Ãºnicas da tabela
+ *e uma matriz de frequÃªncia de sintomas, que serÃ£o utilizados na construÃ§Ã£o da Ã¡rvore.
  *
  *@author SerodioJ
 */
 
 public interface IDataFilter{
-	public String[] diseaseFilter(String[][] instances);
-	public int[][] symptomFilter(String[][] instances, String[] diseases);
+	List diseaseFilter(String[][] instances);
+	int[][] symptomFilter(String[][] instances, List diseases);
 }
