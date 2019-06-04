@@ -8,6 +8,6 @@ package pt.componentes.dataorganizer;
 */
 
 public interface IDataFilter{
-	String[] diseaseFilter(String[][] instances);
-	int[][] symptomFilter(String[][] instances, String[] diseases);
+	public String[] diseaseFilter(String[][] instances);
+	public int[][] symptomFilter(String[][] instances, String[] diseases);
 }

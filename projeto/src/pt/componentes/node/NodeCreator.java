@@ -6,12 +6,15 @@ package pt.componentes.node;
  *@author SerodioJ
 */
 
-public class NodeCreator{
-	Node createNode(){
-		return new Node();
-	}
 
-	Node createNode(String info, boolean diagnostico){
-		return new Node(info, diagnostico);
+public class NodeCreator{
+	
+
+	public Node createNode(int symptom){
+		return new Node(symptom);
+	}
+	
+	public Node createNode(boolean diagnostico){
+		return new Node(diagnostico);
 	}
 }

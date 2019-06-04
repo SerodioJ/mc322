@@ -11,8 +11,8 @@ package pt.componentes.fileusage;
 import pt.componentes.node.Tree;
 
 public interface IFileUsage{
-	void save();
-	String[] readDiseases();
-	String[][] readFrequency();
-	Tree readTree();
+	public void save();
+	public String[] readDiseases();
+	public String[][] readFrequency();
+	public Tree readTree();
 }

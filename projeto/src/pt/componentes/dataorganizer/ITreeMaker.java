@@ -6,8 +6,8 @@ package pt.componentes.dataorganizer;
  *@author SerodioJ
 */
 
-import pt.componentes.node.Tree;
+import pt.componentes.node.*;
 
 public interface ITreeMaker{
-	Tree treeMaker(String[] diseases, String[][] symptomFrequency);
+	public Tree treeMaker(String[] diseases, int[][] symptomFrequency);
 }

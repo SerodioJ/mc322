@@ -6,14 +6,20 @@ package pt.componentes.node;
  *@author SerodioJ
 */
 
+import java.util.Vector;
+
 public class Node{
 	private Node esquerdo, direito;
-	private String info;
+	private int symptom;
 	private boolean diagnostico;
+	private Vector<Integer> diseases;
 	
-	public Node () {}
-	public Node (String info, boolean diagnostico){
-		this.info = info;
+	public Node (int symptom){
+		this.symptom = symptom;
+		this.diagnostico = false;
+	}
+	
+	public Node (boolean diagnostico){
 		this.diagnostico = diagnostico;
 	}
 	
@@ -26,12 +32,16 @@ public class Node{
 		return this.direito;
 	}
 
-	public String getInfo(){
-		return this.info;
+	public int getSymptom(){
+		return this.symptom;
 	}
 
 	public boolean getDiagnostico(){
 		return this.diagnostico;
+	}
+	
+	public Vector<Integer> getDiseases(){
+		return this.diseases;
 	}
 
 	public void setEsquerdo(Node esquerdo){
@@ -42,11 +52,15 @@ public class Node{
 		this.direito = direito;
 	}
 
-	public void setInfo(String info){
-		this.info = info;
+	public void setSymptom(int symptom){
+		this.symptom = symptom;
 	}
 
 	public void setDiagnostico(boolean diagnostico){
 		this.diagnostico = diagnostico;
+	}
+	
+	public void setDiseases(Vector<Integer> diseases) {
+		this.diseases = diseases;
 	}
 }
