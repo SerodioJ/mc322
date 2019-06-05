@@ -1,7 +1,7 @@
 package pt.componentes.node;
 
 /**
- *Nó da árvore
+ *NÃ³ da Ã¡rvore
  *
  *@author SerodioJ
  */
@@ -62,7 +62,7 @@ public class Node{
 		return this.filled;
 	}
 
-    public String[] getPath(){ return this.path; }
+    	public String[] getPath(){ return this.path; }
 
 	public List<Integer> getDiseases(){
 		return this.diseases;
