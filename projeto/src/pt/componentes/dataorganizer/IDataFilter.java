@@ -9,6 +9,7 @@ import java.util.List;
  *@author SerodioJ
 */
 
-public interface IDataFilter{
-	List diseaseFilter(String[][] instances);
-	int[][] symptomFilter(String[][] instances, List diseases);
+public interface IDataFilter {
+    List<String> diseaseFilter(String[][] instances);
+    int[][] symptomFilter(String[][] instances, List diseases);
+}

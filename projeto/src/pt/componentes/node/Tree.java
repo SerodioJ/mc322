@@ -6,17 +6,16 @@ package pt.componentes.node;
  *@author SerodioJ
 */
 
-import java.util.Vector;
-import java.util.ArrayList;
+
 import java.util.List;
 
 public class Tree{
 	private Node root;
-	private Vector<Integer> keySymptoms;
+	private List<Integer> keySymptoms;
 	private List<String> diseases;
-	private int[] priority;
+	private List<Integer> priority;
 
-	public Tree(Node root, Vector<Integer> keySymptoms, List<String> diseases, int[] priority){
+	public Tree(Node root, List<Integer> keySymptoms, List<String> diseases, List<Integer> priority){
 		this.root = root;
 		this.keySymptoms = keySymptoms;
 		this.diseases = diseases;
@@ -28,7 +27,7 @@ public class Tree{
 		return this.root;
 	}
 	
-	public Vector<Integer> getKey(){
+	public List<Integer> getKey(){
 		return this.keySymptoms;
 	}
 	
@@ -36,7 +35,7 @@ public class Tree{
 		return this.diseases;
 	}
 	
-	public int[] getPriority() {
+	public List<Integer> getPriority() {
 		return this.priority;
 	}
 	

@@ -1,5 +1,7 @@
 package pt.componentes.dataorganizer;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,14 +11,14 @@ import java.util.List;
  */
 public class DataFilter implements IDataFilter{
     
-    public List diseaseFilter(String[][] instances) {
+    public List<String> diseaseFilter(String[][] instances) {
         List<String> diseases = new ArrayList<>();
         int indexDisease;
-        
-        for (int i=0; i<instances.length; i++) {
-            indexDisease = (instances[i].length)-1;
-            if (diseases.indexOf(instances[i][indexDisease]) == -1) {
-                diseases.add(instances[i][indexDisease]);
+
+        for (String[] instance : instances) {
+            indexDisease = (instance.length) - 1;
+            if (diseases.indexOf(instance[indexDisease]) == -1) {
+                diseases.add(instance[indexDisease]);
             }
         }
         
@@ -24,17 +26,16 @@ public class DataFilter implements IDataFilter{
     }
     
     public int[][] symptomFilter(String[][] instances, List diseases) {
-        int frequencyMatrix[][] = new int[instances[0].length-1][diseases.size()];
+        int[][] frequencyMatrix = new int[instances[0].length - 1][diseases.size() + 1];
         int index, diseaseIndex = instances[0].length-1;
         
-        for (int j=0; j<(instances[0].length-1); j++) {
-            for (int i=0; i<instances.length; i++) {
-                if (instances[i][j].equals("1") || instances[i][j].equals("t")) {
-                    index = diseases.indexOf(instances[i][diseaseIndex]);
+        for (int j=0; j<(instances[0].length-1); j++)
+            for (String[] instance : instances)
+                if (instance[j].equals("1") || instance[j].equals("t")) {
+                    index = diseases.indexOf(instance[diseaseIndex]);
                     frequencyMatrix[j][index] += 1;
+                    frequencyMatrix[j][diseases.size()] += 1;
                 }
-            }
-        }
         
         return frequencyMatrix;
     }

@@ -5,7 +5,7 @@ package pt.componentes.diagnosticcompleter;
  *que não possuem diagnóstico.
  *
  *@author SerodioJ
-*/
+ */
 
 import pt.componentes.node.Tree;
 

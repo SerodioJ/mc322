@@ -7,7 +7,8 @@ package pt.componentes.dataorganizer;
 */
 
 import pt.componentes.node.*;
+import java.util.List;
 
 public interface ITreeMaker{
-	public Tree treeMaker(String[] diseases, int[][] symptomFrequency);
+	public Tree treeMaker(List<String> diseases, int[][] symptomFrequency, String[][] instances);
 }

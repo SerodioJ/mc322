@@ -4,23 +4,41 @@ package pt.componentes.node;
  *Nó da árvore
  *
  *@author SerodioJ
-*/
+ */
 
-import java.util.Vector;
+import java.util.List;
 
 public class Node{
 	private Node esquerdo, direito;
 	private int symptom;
-	private boolean diagnostico;
-	private Vector<Integer> diseases;
+	private boolean diagnostico, filled;
+	private List<Integer> diseases;
+	private String[] path;
 	
-	public Node (int symptom){
+	Node(int symptom, String[] path, boolean esq, int previous){
 		this.symptom = symptom;
-		this.diagnostico = false;
+		if(previous == -1)
+		    this.path = path;
+		else{
+		    this.path = path.clone();
+		    if (esq)
+		        this.path[previous] = "1";
+		    else
+		        this.path[previous] = "0";
+        }
 	}
 	
-	public Node (boolean diagnostico){
-		this.diagnostico = diagnostico;
+	Node (boolean diagnostico, String[] path, boolean esq, int previous){
+	    this.diagnostico = diagnostico;
+        if(previous == -1)
+            this.path = path;
+        else{
+            this.path = path.clone();
+            if (esq)
+                this.path[previous] = "1";
+            else
+                this.path[previous] = "0";
+        }
 	}
 	
 	//Gets e sets
@@ -39,8 +57,14 @@ public class Node{
 	public boolean getDiagnostico(){
 		return this.diagnostico;
 	}
-	
-	public Vector<Integer> getDiseases(){
+
+	public boolean getFilled(){
+		return this.filled;
+	}
+
+    public String[] getPath(){ return this.path; }
+
+	public List<Integer> getDiseases(){
 		return this.diseases;
 	}
 
@@ -59,8 +83,12 @@ public class Node{
 	public void setDiagnostico(boolean diagnostico){
 		this.diagnostico = diagnostico;
 	}
+
+	public void setFilled(boolean filled){this.filled = filled;}
 	
-	public void setDiseases(Vector<Integer> diseases) {
+	public void setDiseases(List<Integer> diseases) {
 		this.diseases = diseases;
 	}
+
+	public void setPath(String[] path) { this.path = path; }
 }
