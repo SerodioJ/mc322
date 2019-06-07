@@ -1,15 +1,17 @@
 package pt.componentes.node;
 
 /**
- *¡rvore
+ *√Årvore
  *
  *@author SerodioJ
 */
 
 
 import java.util.List;
+import java.io.Serializable;
 
-public class Tree{
+
+public class Tree implements Serializable{
 	private Node root;
 	private List<Integer> keySymptoms;
 	private List<String> diseases;
