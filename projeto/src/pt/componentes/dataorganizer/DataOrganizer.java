@@ -81,8 +81,8 @@ public class DataOrganizer implements ITreeMaker, IDataFilter {
 		if (keySymptoms.indexOf(current) != -1)
 			return treeSkeleton(symptoms, current+1, previous, nC, keySymptoms, path, esq);
 		Node node = nC.createNode(current, path, esq, previous);
-		node.setDireito(treeSkeleton(symptoms, current+1, current, nC, keySymptoms, path, false));
-		node.setEsquerdo(treeSkeleton(symptoms, current+1, current, nC, keySymptoms, path, true));
+		node.setDireito(treeSkeleton(symptoms, current+1, current, nC, keySymptoms, node.getPath(), false));
+		node.setEsquerdo(treeSkeleton(symptoms, current+1, current, nC, keySymptoms, node.getPath(), true));
 		return node;
 	}
 
