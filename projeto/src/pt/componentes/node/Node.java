@@ -7,8 +7,11 @@ package pt.componentes.node;
  *@author SerodioJ
  */
 
+
+import java.util.ArrayList;
 import java.util.List;
 import java.io.Serializable;
+import java.io.PrintWriter;
 
 
 public class Node implements Serializable{
@@ -94,4 +97,20 @@ public class Node implements Serializable{
 	}
 
 	public void setPath(String[] path) { this.path = path; }
+
+	public void serializa(PrintWriter escritor, int numero){
+		escritor.println("@Node "+ numero);
+		escritor.println("Sintoma: " + this.symptom);
+		escritor.println("Diagnostico: " + this.diagnostico);
+		if (this.diseases == null)
+			escritor.println("Doencas: null");
+		else
+			escritor.println("Doencas: "+ this.diseases);
+		List<String> caminho = new ArrayList<>();
+		for(String teste:this.path){
+			caminho.add(teste);
+		}
+		escritor.println("Path: " + caminho);
+		escritor.println("");
+	}
 }
