@@ -1,5 +1,6 @@
 package pt.componentes.node;
 
+
 /**
  *Nó da árvore
  *
@@ -7,8 +8,10 @@ package pt.componentes.node;
  */
 
 import java.util.List;
+import java.io.Serializable;
 
-public class Node{
+
+public class Node implements Serializable{
 	private Node esquerdo, direito;
 	private int symptom;
 	private boolean diagnostico, filled;
