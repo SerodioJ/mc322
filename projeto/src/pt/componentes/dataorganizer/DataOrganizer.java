@@ -1,7 +1,7 @@
 package pt.componentes.dataorganizer;
 
 /**
- *Plantar um árvore nunca foi tão complicado.
+ *Plantar um Ã¡rvore nunca foi tÃ£o complicado.
  *
  *@authors SerodioJ,leonardolivraremartins.
  */
@@ -13,8 +13,8 @@ import java.util.List;
 
 public class DataOrganizer implements ITreeMaker, IDataFilter {
 
-	/* Implementação de IDataFilter */
-	public List diseaseFilter(String[][] instances) {
+	/* ImplementaÃ§Ã£o de IDataFilter */
+	public List<String> diseaseFilter(String[][] instances) {
 		List<String> diseases = new ArrayList<>();
 		int indexDisease;
 
@@ -45,8 +45,8 @@ public class DataOrganizer implements ITreeMaker, IDataFilter {
 
 
 
-	/*Implementação de ITreeMaker*/
-	//Retorna uma lista de sintomas característicos de uma doença
+	/*ImplementaÃ§Ã£o de ITreeMaker*/
+	//Retorna uma lista de sintomas caracterÃ­sticos de uma doenÃ§a
 	private List<Integer> unique(int[][] symptomFrequency) {
 		List<Integer> unique = new ArrayList<>();
 		for (int i = 0; i < symptomFrequency.length; i++) {
@@ -62,7 +62,7 @@ public class DataOrganizer implements ITreeMaker, IDataFilter {
 		return unique;
 	}
 	
-	//Método recursivo para construir a árvore de diagnóstico.
+	//MÃ©todo recursivo para construir a Ã¡rvore de diagnÃ³stico.
 	private Node treeSkeleton(int symptoms, int current, int previous, NodeCreator nC, List<Integer> keySymptoms, String[] path, boolean esq) {
 		if (current == symptoms)
 			return nC.createNode(true, path, esq, previous);
@@ -95,7 +95,7 @@ public class DataOrganizer implements ITreeMaker, IDataFilter {
 	    return priorities;
     }
 	
-	//Método para comparar o caminho da árvore com a tabela de referência. Usando o vetor priority para fazer o menor número de comparações.
+	//MÃ©todo para comparar o caminho da Ã¡rvore com a tabela de referÃªncia. Usando o vetor priority para fazer o menor nÃºmero de comparaÃ§Ãµes.
 	private List<Integer> diagnostic(Tree tree, Node current, String[][] instances){
 		List<Integer> diagnostic = new ArrayList<>();
 		for (String[] instance : instances)
@@ -109,7 +109,7 @@ public class DataOrganizer implements ITreeMaker, IDataFilter {
 
 	}
 	
-	//Percorre a árvore colocando os diagnósticos nos nós-folha
+	//Percorre a Ã¡rvore colocando os diagnÃ³sticos nos nÃ³s-folha
 	private Node treeRunner (Node current, Tree tree, String[][] instances) {
 		if (current.getDiagnostico()) {
 			current.setDiseases(diagnostic(tree, current, instances));
@@ -120,7 +120,7 @@ public class DataOrganizer implements ITreeMaker, IDataFilter {
 		return current;
 	}
 	
-	//Método de construção da árvore
+	//MÃ©todo de construÃ§Ã£o da Ã¡rvore
 	public Tree treeMaker(List<String> diseases, int[][] symptomFrequency, String[][] instances) {
 		NodeCreator nC = new NodeCreator();
 		List<Integer> keySymptoms = unique(symptomFrequency);
