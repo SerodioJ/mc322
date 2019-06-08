@@ -5,7 +5,7 @@ import pt.clubedohardware.node.Tree;
 
 /**
  *FileUsage salva os dados importantes do programa em execucao em um arquivo texto,
- *a fim de que os dados n�o sejam processados novamente.
+ *a fim de que os dados nao sejam processados novamente.
  *O componente pode ser adaptado para casos particulares.
  *
  *@author SerodioJ

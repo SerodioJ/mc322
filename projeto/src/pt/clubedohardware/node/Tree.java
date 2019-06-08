@@ -11,7 +11,7 @@ import java.io.PrintWriter;
 import java.io.File;
 
 /**
- *Árvore
+ *Arvore
  *
  *@author SerodioJ
  */
@@ -50,7 +50,7 @@ public class Tree implements Serializable{
 		this.root = root;
 	}
 
-	//Transforma a árvore em um heap
+	//Transforma a arvore em um heap
 	@SuppressWarnings("WeakerAccess")
 	public List<Node> toHeap() {
 		List<Node> heap = new ArrayList<>();
@@ -66,7 +66,7 @@ public class Tree implements Serializable{
 		return heap;
 	}
 
-	//Método de serialização DAO para verificar o estado da árvore
+	//Metodo de serializacao DAO para verificar o estado da arvore
 	public void DAO(String fileName){
 		try{
 			File dir = new File("projeto\\Saves");

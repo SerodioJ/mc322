@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.io.PrintWriter;
 
 /**
- *Nó da árvore
+ *No da arvore
  *
  *@author SerodioJ
  */
@@ -104,8 +104,7 @@ public class Node implements Serializable{
 		this.filledPower++;
 	}
 
-	//Método de serialização DAO para verificar o estado do nó
-	@SuppressWarnings("WeakerAccess")
+	//Metodo de serializacao DAO para verificar o estado do no
 	public void DAO(PrintWriter escritor, int numero){
 		escritor.println("@Node "+ numero);
 		escritor.println("Sintoma: " + this.symptom);

@@ -1,7 +1,7 @@
 package pt.clubedohardware.node;
 
 /**
- *Fábrica de nós
+ *Fabrica de nos
  *
  *@author SerodioJ
  */

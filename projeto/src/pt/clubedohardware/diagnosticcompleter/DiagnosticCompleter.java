@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DiagnosticCompleter implements IDiagnosticCompleter {
-    //Método que preenche o diagnóstico vazio
+    //Metodo que preenche o diagnostico vazio
     @Override
     public List<Integer> dataFiller(Node node, Tree tree){
         List<Integer> data = new ArrayList<>();
@@ -35,7 +35,7 @@ public class DiagnosticCompleter implements IDiagnosticCompleter {
         return data;
     }
 
-    //Método que percorre uma árvore a partir de um caminho dado
+    //Metodo que percorre uma arvore a partir de um caminho dado
     private void runTree(Node root, int[] path, List<Integer> data, List<Integer> priority){
         Node current = root;
         for (int value : priority){
@@ -51,7 +51,7 @@ public class DiagnosticCompleter implements IDiagnosticCompleter {
             }
     }
 
-    //Método que troca uma posicao da path
+    //Metodo que troca uma posicao da path
     private void change(int[] path, int index){
         if (path[index] == 0)
             path[index] = 1;
@@ -59,7 +59,7 @@ public class DiagnosticCompleter implements IDiagnosticCompleter {
             path[index] = 0;
     }
 
-    //Método dataFiller com grau maior de alteração na path
+    //Metodo dataFiller com grau maior de alteracao na path
     @SuppressWarnings("all")
     private void superFiller( Node root, int[] path, List<Integer> priority, List<Integer> data, int power, List<Integer> pinned){
         if (power == 1){

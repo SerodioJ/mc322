@@ -7,10 +7,10 @@ package pt.componentes.AppTestTree;
 
 
 import java.util.List;
-import pt.componentes.dataorganizer.DataOrganizer;
-import pt.componentes.dataset.*;
-import pt.componentes.fileusage.*;
-import pt.componentes.node.*;
+import pt.clubedohardware.dataorganizer.DataOrganizer;
+import pt.clubedohardware.dataset.*;
+import pt.clubedohardware.fileusage.*;
+import pt.clubedohardware.node.*;
 
 
 /**

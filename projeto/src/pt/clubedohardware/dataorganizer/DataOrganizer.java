@@ -1,7 +1,7 @@
 package pt.clubedohardware.dataorganizer;
 
 import pt.clubedohardware.node.*;
-import pt.clubedohardware.diagnosticcompleter.DiagnosticCompleter;
+//import pt.clubedohardware.diagnosticcompleter.DiagnosticCompleter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,10 +13,8 @@ import java.util.List;
 
 public class DataOrganizer implements ITreeMaker, IDataFilter {
 
-	public static void main(String arg[]){}
-
-	/* Implementação de IDataFilter */
-	//Retorna as doenças que ocorrem na matriz
+	/* Implementacao de IDataFilter */
+	//Retorna as doencas que ocorrem na matriz
 	@Override
 	public List<String> diseaseFilter(String[][] instances) {
 		List<String> diseases = new ArrayList<>();
@@ -32,9 +30,9 @@ public class DataOrganizer implements ITreeMaker, IDataFilter {
 		return diseases;
 	}
 
-	//Retorna uma matriz de frequência dos sintomas em relação as doenças
+	//Retorna uma matriz de frequencia dos sintomas em relacao as doencas
 	@Override
-	public int[][] symptomFilter(String[][] instances, List diseases) {
+	public int[][] symptomFilter(String[][] instances, List<String> diseases) {
 		int[][] frequencyMatrix = new int[instances[0].length - 1][diseases.size() + 1];
 		int index, diseaseIndex = instances[0].length-1;
 
@@ -51,8 +49,8 @@ public class DataOrganizer implements ITreeMaker, IDataFilter {
 
 
 
-	/*Implementação de ITreeMaker*/
-	//Método de construção da árvore
+	/*Implementacao de ITreeMaker*/
+	//Metodo de construcao da arvore
 	@Override
 	public Tree treeMaker(List<String> diseases, int[][] symptomFrequency, String[][] instances) {
 		NodeCreator nC = new NodeCreator();
@@ -67,7 +65,7 @@ public class DataOrganizer implements ITreeMaker, IDataFilter {
 		return diagnosticTree;
 	}
 
-	//Retorna uma lista de sintomas característicos de uma doença
+	//Retorna uma lista de sintomas caracteristicos de uma doenca
 	private List<Integer> unique(int[][] symptomFrequency) {
 		List<Integer> unique = new ArrayList<>();
 		for (int i = 0; i < symptomFrequency.length; i++) {
@@ -98,7 +96,7 @@ public class DataOrganizer implements ITreeMaker, IDataFilter {
 		return equal;
 	}
 
-	//Método recursivo para construir a árvore de diagnóstico.
+	//Metodo recursivo para construir a arvore de diagnostico.
 	private Node treeSkeleton(int symptoms, int current, int previous, NodeCreator nC, List<Integer> priority, int[] path, boolean esq) {
 		if (current == symptoms)
 			return nC.createNode(true, path, esq, previous);
@@ -129,22 +127,22 @@ public class DataOrganizer implements ITreeMaker, IDataFilter {
 		return priorities;
 	}
 
-	//Método para comparar o caminho da árvore com a tabela de referência. Usando o vetor priority para fazer o menor número de comparações.
+	//Metodo para comparar o caminho da arvore com a tabela de referencia. Usando o vetor priority para fazer o menor numero de comparacoes.
 	private List<Integer> diagnostic(Tree tree, Node current, String[][] instances){
-		DiagnosticCompleter DC = new DiagnosticCompleter();
+		//DiagnosticCompleter DC = new DiagnosticCompleter();
 		List<Integer> diagnostic = new ArrayList<>();
 		for (String[] instance : instances)
 			if (comparePath(current.getPath(), instance) && diagnostic.indexOf(tree.getDiseases().indexOf(instance[instances[0].length-1])) == -1)
 				diagnostic.add(tree.getDiseases().indexOf(instance[instances[0].length-1]));
-		if (diagnostic.isEmpty()){
+		/*if (diagnostic.isEmpty()){
 			current.setFilled(true);
 			diagnostic = DC.dataFiller(current, tree);
-		}
+		}*/
 		return diagnostic;
 
 	}
 
-	//Percorre a árvore colocando os diagnósticos nos nós-folha
+	//Percorre a arvore colocando os diagnosticos nos nos-folha
 	private Node treeRunner (Node current, Tree tree, String[][] instances) {
 		if (current.getDiagnostico()) {
 			current.setDiseases(diagnostic(tree, current, instances));
