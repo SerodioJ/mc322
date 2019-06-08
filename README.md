@@ -30,7 +30,7 @@
 ### Interface ITreeMaker
 |Método| Objetivo|
 |------|--------|
-|`treeMaker`|Recebe o vetor de doenças e a matriz de frequência de sintomas e retorna uma árvore de diagnóstico, cujos nós internos são perguntas e os nós folhas são os diagnósticos finais. A árvore consiste de um sintoma por nível, ou seja, no nível 1 da arvore temos um mesmo sintoma em todos os nós desse nível e assim por diante. Nos nós folhas da arvore temos um verificador .getDiagnostic() que retorna true se o nó é folha e possui um diagnostico, então esse nó possui um vetor doenças, o qual contem todas as doenças que o paciente possuí (.getDiseases() - vetor de inteiros, onde o valor é a posição da doença na lista de doenças).|
+|`treeMaker`|Recebe o vetor de doenças e a matriz de frequência de sintomas e retorna uma árvore de diagnóstico, cujos nós internos são perguntas e os nós folhas são os diagnósticos finais. A árvore consiste de um sintoma por nível, ou seja, no nível 1 da arvore temos um mesmo sintoma em todos os nós desse nível e assim por diante. Nos nós folhas da arvore temos um verificador .getDiagnostic() que retorna true se o nó é folha e possui um diagnostico, então esse nó possui um vetor doenças, o qual contem todas as doenças que o paciente possuí (.getDiseases() retorna o vetor de doenças, onde cada posição desse vetor possui o index da doença na lista de doenças gerada pelo método diseaseFilter).|
 
 
 
