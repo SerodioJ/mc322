@@ -53,7 +53,7 @@
 |`setPacientName`|Recebe como parâmetro a String `pacName` que é o nome do paciente, guarda esse nome para ser impresso na interface gráfica. |
 |`setDocName`|Recebe como parâmetro a String `docName` que é o nome do doutor, guardando o nome para ser impresso na interface gráfica. |
 
-
+Exemplo de uso https://github.com/SerodioJ/mc322/tree/intermedi%C3%A1rio/projeto/src/pt/clubedohardware/tutorial.
 
 ## Componente FileUsage
 |Campo | Valor|
