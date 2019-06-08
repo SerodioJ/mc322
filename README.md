@@ -59,8 +59,8 @@
 |Campo | Valor|
 |------|--------|
 |Classe|tdb|
-|Autores|João Seródio,Pedro Strambeck|
-|Objetivo|Salva dados obtidos pelo programa como a árvore diagnóstico e tabelas para poderem ser utilizados novamente pelo programa para não ter que reprocessar todos os dados novamente. Pode ser adaptado para os mais diversos tipos de estruturas de dados.|
+|Autores|Leonardo Livrare,Pedro Strambeck|
+|Objetivo|Salva dados obtidos pelo programa como a árvore diagnóstico e tabelas para poderem ser utilizados novamente pelo programa para não ter que reprocessar todos os dados novamente.|
 |Interface|IFileUsage|
 
 
