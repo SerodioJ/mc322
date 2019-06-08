@@ -39,7 +39,7 @@ public class FileUsage implements IFileUsage{
     //Deserializa a lista de doencas
     @Override
     @SuppressWarnings("unchecked")
-    public List getDiseases() {
+    public List<String> getDiseases() {
         List<String> diseases;
         diseases = (ArrayList<String>) deserialize("diseases.txt");
         

@@ -14,7 +14,7 @@ import pt.clubedohardware.node.Tree;
 public interface IFileUsage{
 	void save(List<String> diseases, int[][] symptomFrequency, Tree tree);
 	void save(Tree tree);
-	List getDiseases();
+	List<String> getDiseases();
 	int[][] getFrequency();
 	Tree getTree();
 }
