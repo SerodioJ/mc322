@@ -1,4 +1,4 @@
-package pt.componentes.userinterface;
+package pt.clubedohardware.userinterface;
 
 import java.awt.event.*;
 import javax.swing.Timer;
