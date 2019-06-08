@@ -67,7 +67,7 @@
 ### Interface IFileUsage
 |Método| Objetivo|
 |------|--------|
-|`save`| Não tem parâmetros, salva as informações importantes do programa |
+|`save`| Possuí 3 parametros, o primeiro é a lista de doenças(obtida pelo método diseaseFilter(instances) do DataOrganizer), o segundo é a matriz de frequencia (obtida pelo método symptomFilter(instances, diseases) do DataOrganizer) e o terceiro é a árvore de diagnóstico (também obtida pelo DataOrganizer). Esse método salva as informações desses 3 dados passados como parametro. |
 |`readDiseases`| Lê o arquivo texto e retorna o vetor de doenças |
 |`readFrequency`| Lê o arquivo texto e retorna a matriz de frequência dos sintomas|
 |`readTree`| Lê o arquivo texto e retorna a árvore de diagnóstico|
