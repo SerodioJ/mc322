@@ -40,11 +40,11 @@
 |Classe|pt.clubedohardware.userinterface.UserInterface|
 |Autores|Willian Ozako, Lucas, Douglas Yoshioka|
 |Objetivo|Criar animação das interações entre o médico e o paciente|
-|Interface|IAnimation|
+|Interface|IAnimationC|
 
-![](ezgif.com-video-to-gif(1).gif)
+![](ezgif.com-video-to-gif(2).gif)
 
-### Interface IAnimation
+### Interface IAnimationC
 |Método| Objetivo|
 |------|--------|
 |`story`|Recebe como parâmetro dois vetores, o primeiro que armazena as falas das personagens e o segundo registra quem fala na n-ésima fala. Exemplo: n-ésima posição do 1o vetor - "You have smallpox." - e na n-ésima posição do 2o vetor - "doctor" - logo fica: "Doctor: You have smallpox."**IMPORTANTE:** Para gerar destaque em uma expressão como o nome da doença ou o do sintoma, coloque a expressão entre asteriscos(*). EX: "You have \*smallpox\*." -> "You have **smallpox**." |
