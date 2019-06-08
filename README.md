@@ -30,7 +30,7 @@
 ### Interface ITreeMaker
 |Método| Objetivo|
 |------|--------|
-|`treeMaker`|Recebe o vetor de doenças e a matriz de frequência de sintomas e retorna uma árvore de diagnóstico, cujos nós internos são perguntas e os nós folhas são os diagnósticos finais.|
+|`treeMaker`|Recebe o vetor de doenças e a matriz de frequência de sintomas e retorna uma árvore de diagnóstico, cujos nós internos são perguntas e os nós folhas são os diagnósticos finais. A árvore consiste de um sintoma por nível, ou seja, no nível 1 da arvore temos |
 
 
 
