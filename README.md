@@ -67,7 +67,7 @@
 ### Interface IFileUsage
 |Método| Objetivo|
 |------|--------|
-|`save`| Possuí 3 parametros, o primeiro é a lista de doenças(obtida pelo método diseaseFilter(instances) do DataOrganizer), o segundo é a matriz de frequencia (obtida pelo método symptomFilter(instances, diseases) do DataOrganizer) e o terceiro é a árvore de diagnóstico (também obtida pelo DataOrganizer). Esse método salva as informações desses 3 dados passados como parametro. |
+|`save`| Possuí 3 parametros, o primeiro é a lista de doenças(obtida pelo método diseaseFilter(instances) do DataOrganizer), o segundo é a matriz de frequencia (obtida pelo método symptomFilter(instances, diseases) do DataOrganizer) e o terceiro é a árvore de diagnóstico (também obtida pelo DataOrganizer). Esse método salva as informações desses 3 dados passados como parametro. Vale ressaltar que os arquivos da serialização ficam na pasta do projeto num arquivo chamado SerializedData. |
 |`readDiseases`| Lê o arquivo texto e retorna o vetor de doenças |
 |`readFrequency`| Lê o arquivo texto e retorna a matriz de frequência dos sintomas|
 |`readTree`| Lê o arquivo texto e retorna a árvore de diagnóstico|
