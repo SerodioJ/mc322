@@ -14,7 +14,7 @@
 ## Componente DataOrganizer
 |Campo | Valor|
 |------|--------|
-|Classe|tbd|
+|Classe|pt.clubedohardware.dataorganizer.DataOrganizer|
 |Autores|João Seródio, Leonardo Livrare|
 |Objetivo|Organizar os dados da tabela para facilitar o diagnóstico|
 |Interface|IDataFilter, ITreeMaker|
@@ -37,7 +37,7 @@
 ## Componente UserInterface
 |Campo | Valor|
 |------|--------|
-|Classe|pt.userinterface|
+|Classe|pt.clubedohardware.userinterface.UserInterface|
 |Autores|Willian Ozako, Lucas, Douglas Yoshioka|
 |Objetivo|Criar animação das interações entre o médico e o paciente|
 |Interface|IAnimation|
@@ -58,8 +58,8 @@
 ## Componente FileUsage
 |Campo | Valor|
 |------|--------|
-|Classe|tdb|
-|Autores|Leonardo Livrare,Pedro Strambeck|
+|Classe|pt.clubedohardware.fileusage.FileUsage|
+|Autores|Leonardo Livrare|
 |Objetivo|Salva dados obtidos pelo programa como a árvore diagnóstico e tabelas para poderem ser utilizados novamente pelo programa para não ter que reprocessar todos os dados novamente.|
 |Interface|IFileUsage|
 
@@ -77,8 +77,8 @@
 ## Componente DiagnosticCompleter
 |Campo | Valor|
 |------|--------|
-|Classe|tdb|
-|Autores|João Seródio, Willian Ozako|
+|Classe|usado juntamente com o DataOrganizer|
+|Autores|João Seródio, Pedro Strambeck|
 |Objetivo|Completar os nós folha vazios da árvore|
 |Interface|IDiagnosticCompleter|
 
