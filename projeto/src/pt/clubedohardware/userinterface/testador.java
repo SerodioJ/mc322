@@ -1,7 +1,7 @@
-package pt.clubedohardware.userinterface;
+package pt.componentes.userinterface;
 
-import pt.clubedohardware.userinterface.AnimationC;
-import pt.clubedohardware.userinterface.IAnimationC;
+import pt.componentes.userinterface.AnimationC;
+import pt.componentes.userinterface.IAnimationC;
 
 public class testador {
 	public static void main(String[] args){

@@ -1,4 +1,4 @@
-package pt.clubedohardware.userinterface;
+package pt.componentes.userinterface;
 
 public interface IAnimation {
 	public void story(String[] falas, String[] personagem);

@@ -1,9 +1,9 @@
-package pt.clubedohardware.userinterface;
+package pt.componentes.userinterface;
 
 import java.awt.event.*;
 import javax.swing.Timer;
 
-import pt.clubedohardware.userinterface.IAnimation;
+import pt.componentes.userinterface.IAnimation;
 
 public class Animation extends javax.swing.JFrame implements IAnimation{
 	/**
@@ -80,8 +80,8 @@ public class Animation extends javax.swing.JFrame implements IAnimation{
             jButton2.setIcon(new javax.swing.ImageIcon("src/main/java/pt/userinterface/Untitled.jpg"));
         }
         */
-        jLabel1.setIcon(new javax.swing.ImageIcon("projeto/images/Webp.net-resizeimage.jpg"));
-        jButton2.setIcon(new javax.swing.ImageIcon("projeto/images/Untitled.jpg"));
+        jLabel1.setIcon(new javax.swing.ImageIcon("src/main/java/pt/componentes/userinterface/Webp.net-resizeimage.jpg"));
+        jButton2.setIcon(new javax.swing.ImageIcon("src/main/java/pt/componentes/userinterface/Untitled.jpg"));
         estado++;
         if (estado >= max)
             dispose();
@@ -153,7 +153,7 @@ public class Animation extends javax.swing.JFrame implements IAnimation{
     
     private void writingOn(String fala, String nome){
         if (fala.equals("x897422dsgbvc41") && nome.equals("fdcb414bv")){
-            jTextPane1.setText("Aperte o botao <b>Comecar</b> para iniciar a animacao...");
+            jTextPane1.setText("Aperte o botão <b>Começar</b> para iniciar a animação...");
         }
         else{
             String saida = "";
@@ -210,9 +210,9 @@ public class Animation extends javax.swing.JFrame implements IAnimation{
         max = falas.length;
         //jLabel1.setIcon(new javax.swing.ImageIcon("src/main/java/pt/userinterface/Webp.net-resizeimage.jpg"));
         jTextPane1.setContentType("text/html");
-        jLabel1.setIcon(new javax.swing.ImageIcon("projeto/images/abertura2.jpeg"));
+        jLabel1.setIcon(new javax.swing.ImageIcon("src/main/java/pt/componentes/userinterface/abertura2.jpeg"));
         //writingOn(falas[estado],personagem[estado]);
-        jButton2.setIcon(new javax.swing.ImageIcon("projeto/images/index.jpeg"));
+        jButton2.setIcon(new javax.swing.ImageIcon("src/main/java/pt/componentes/userinterface/index.jpeg")); 
         writingOn("x897422dsgbvc41","fdcb414bv");
         setVisible(true);
     }
