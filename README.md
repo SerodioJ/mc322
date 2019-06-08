@@ -24,7 +24,7 @@
 |Método| Objetivo|
 |------|--------|
 |`diseaseFilter`|Recebe como parâmetro a tabela de diagnósticos e retorna as possíveis doenças em forma de uma lista string(List<String>)|
-|`symptomFilter`|O parâmetro é a tabela do componente DataSet e o vetor das doenças da tabela, retorna uma tabela que aparece a frequência de cada sintoma por doença, por exemplo apareceram 3 casos de pacientes com língua amarela que apresentaram a doença bite_deficiet |
+|`symptomFilter`|O parâmetro é a tabela do componente DataSet e o vetor das doenças da tabela, retorna uma matriz que aparece a frequência de cada sintoma por doença, por exemplo apareceram 3 casos de pacientes com língua amarela que apresentaram a doença bite_deficiet. Nessa matriz as linhas simbolizam os sintomas, por exemplo na linha 0 é o sintoma lingua amarela e na linha 1 é o sintoma febre, e as colunas simbolizam as doenças na mesma ordem da lista de doenças dada pelo metódo acima, por exemplo a doença na coluna 0 é a doença na posição 0 da lista de doenças. Assim, se na posição [1][3] da matriz de frequencia temos o valor 5, quer dizer que o sintoma 1 aparece 5 vezes para a doença da posição 3. |
 
 
 ### Interface ITreeMaker
