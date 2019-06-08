@@ -42,7 +42,7 @@
 |Objetivo|Criar animação das interações entre o médico e o paciente|
 |Interface|IAnimation|
 
-![](ezgif.com-video-to-gif(1).gif)
+![](ezgif.com-video-to-gif(2).gif)
 
 ### Interface IAnimation
 |Método| Objetivo|
@@ -53,7 +53,7 @@
 |`setPacientName`|Recebe como parâmetro a String `pacName` que é o nome do paciente, guarda esse nome para ser impresso na interface gráfica. |
 |`setDocName`|Recebe como parâmetro a String `docName` que é o nome do doutor, guardando o nome para ser impresso na interface gráfica. |
 
-
+Exemplo de uso: https://github.com/SerodioJ/mc322/blob/master/projeto/jarfiles/Tutorial_userInterface.java
 
 ## Componente FileUsage
 |Campo | Valor|
