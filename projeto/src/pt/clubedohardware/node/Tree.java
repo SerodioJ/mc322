@@ -67,9 +67,9 @@ public class Tree implements Serializable{
 	}
 
 	//Metodo de serializacao DAO para verificar o estado da arvore
-	public void DAO(String fileName){
+	public void DAO(String fileName, String dirName){
 		try{
-			File dir = new File("projeto\\Saves");
+			File dir = new File(dirName);
 			FileWriter arquivo = new FileWriter(new File(dir, fileName));
 			PrintWriter escritor = new PrintWriter(arquivo);
 			escritor.println("@Tree");

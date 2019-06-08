@@ -1,7 +1,7 @@
 package pt.clubedohardware.dataorganizer;
 
 import pt.clubedohardware.node.*;
-//import pt.clubedohardware.diagnosticcompleter.DiagnosticCompleter;
+import pt.clubedohardware.diagnosticcompleter.DiagnosticCompleter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -129,15 +129,15 @@ public class DataOrganizer implements ITreeMaker, IDataFilter {
 
 	//Metodo para comparar o caminho da arvore com a tabela de referencia. Usando o vetor priority para fazer o menor numero de comparacoes.
 	private List<Integer> diagnostic(Tree tree, Node current, String[][] instances){
-		//DiagnosticCompleter DC = new DiagnosticCompleter();
+		DiagnosticCompleter DC = new DiagnosticCompleter();
 		List<Integer> diagnostic = new ArrayList<>();
 		for (String[] instance : instances)
 			if (comparePath(current.getPath(), instance) && diagnostic.indexOf(tree.getDiseases().indexOf(instance[instances[0].length-1])) == -1)
 				diagnostic.add(tree.getDiseases().indexOf(instance[instances[0].length-1]));
-		/*if (diagnostic.isEmpty()){
+		if (diagnostic.isEmpty()){
 			current.setFilled(true);
 			diagnostic = DC.dataFiller(current, tree);
-		}*/
+		}
 		return diagnostic;
 
 	}

@@ -37,7 +37,7 @@ public class AppFileUsage {
         Tree tree = dataOr.treeMaker(diseases, symptomFrequency, instances);
         String[] aux = dir.split("/");
 
-        tree.DAO("arvore-de-"+aux[aux.length-1].replace(".csv", ".txt"));
+        tree.DAO("arvore-de-"+aux[aux.length-1].replace(".csv", ".txt"),"projeto/saves");
     }
 }
     
