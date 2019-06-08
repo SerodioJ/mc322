@@ -1,7 +1,7 @@
-package pt.componentes.userinterface;
+package pt.clubedohardware.userinterface;
 
-import pt.componentes.userinterface.Animation;
-import pt.componentes.userinterface.IAnimation;
+import pt.clubedohardware.userinterface.Animation;
+import pt.clubedohardware.userinterface.IAnimation;
 
 public class AnimationC implements IAnimationC{
 	private String docName = null;
