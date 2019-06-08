@@ -6,5 +6,5 @@ package pt.componentes.dataset;
  */
 
 public interface ITableProducerReceptacle {
-	  public void connect(ITableProducer producer);
+	  void connect(ITableProducer producer);
 }

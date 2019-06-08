@@ -17,6 +17,7 @@ import pt.componentes.node.*;
  *
  * @author leonardolivraremartins
  */
+
 public class AppFileUsage {
 
     /**
@@ -27,14 +28,16 @@ public class AppFileUsage {
 
         DataOrganizer dataOr = new DataOrganizer();
         DataSetComponent dataset = new DataSetComponent();
-        dataset.setDataSource("projeto\\db\\zombie-health-new-cases500.csv");
+        String dir = "projeto/db/zombie-health-spreadsheet-ml-training.csv";
+        dataset.setDataSource(dir);
         String[][] instances = dataset.requestInstances();
         List<String> diseases = dataOr.diseaseFilter(instances);
         int[][] symptomFrequency = dataOr.symptomFilter(instances, diseases);
 
         Tree tree = dataOr.treeMaker(diseases, symptomFrequency, instances);
+        String[] aux = dir.split("/");
 
-        tree.serializa("arvore.txt");
+        tree.DAO("arvore-de-"+aux[aux.length-1].replace(".csv", ".txt"));
     }
 }
     

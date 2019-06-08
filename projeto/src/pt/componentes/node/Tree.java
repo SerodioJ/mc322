@@ -1,12 +1,5 @@
 package pt.componentes.node;
 
-/**
- *Árvore
- *
- *@author SerodioJ
-*/
-
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +10,11 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.File;
 
+/**
+ *Árvore
+ *
+ *@author SerodioJ
+ */
 
 public class Tree implements Serializable{
 	private Node root;
@@ -52,6 +50,8 @@ public class Tree implements Serializable{
 		this.root = root;
 	}
 
+	//Transforma a árvore em um heap
+	@SuppressWarnings("WeakerAccess")
 	public List<Node> toHeap() {
 		List<Node> heap = new ArrayList<>();
 		Deque<Node> fila = new ArrayDeque<>();
@@ -66,7 +66,8 @@ public class Tree implements Serializable{
 		return heap;
 	}
 
-	public void serializa(String fileName){
+	//Método de serialização DAO para verificar o estado da árvore
+	public void DAO(String fileName){
 		try{
 			File dir = new File("projeto\\Saves");
 			FileWriter arquivo = new FileWriter(new File(dir, fileName));
@@ -79,9 +80,34 @@ public class Tree implements Serializable{
 			List<Node> heap = this.toHeap();
 			int no = 0;
 			for(Node node : heap) {
-				node.serializa(escritor, no);
+				node.DAO(escritor, no);
 				no++;
 			}
+			int diagnosticLeaves = 0, filledLeaves = 0, filled1 = 0, filled2 = 0, filled3 = 0, filledplus = 0, fakedFilled = 0;
+			for (int i = (heap.size()-1)/2; i < heap.size(); i++) {
+				if (!heap.get(i).getDiseases().isEmpty())
+					diagnosticLeaves++;
+				if(heap.get(i).getFilled() && !heap.get(i).getDiseases().isEmpty()) {
+					filledLeaves++;
+					if (heap.get(i).getFilledPower() == 1)
+						filled1++;
+					else if (heap.get(i).getFilledPower() == 2)
+						filled2++;
+					else if (heap.get(i).getFilledPower() == 3)
+						filled3++;
+					else if (heap.get(i).getFilledPower() < 10)
+						filledplus++;
+					else
+						fakedFilled++;
+				}
+			}
+			escritor.println("Folhas com diagnostico: "+ diagnosticLeaves+"/"+(heap.size()+1)/2);
+			escritor.println("Folhas preechidas pelo DiagnosticCompleter: "+filledLeaves+"/"+(heap.size()+1)/2);
+			escritor.println("Folhas preechidas de grau 1: "+filled1+"/"+filledLeaves);
+			escritor.println("Folhas preechidas de grau 2: "+filled2+"/"+filledLeaves);
+			escritor.println("Folhas preechidas de grau 3: "+filled3+"/"+filledLeaves);
+			escritor.println("Folhas preechidas de grau maior que 4 e menor que 10: "+filledplus+"/"+filledLeaves);
+			escritor.println("Folhas colocadas como nothing default ou com diagnostico inconclusivo: "+fakedFilled+"/"+filledLeaves);
 			arquivo.close();
 			System.out.println("Gravacao realizada com sucesso");
 		} catch(IOException erro){

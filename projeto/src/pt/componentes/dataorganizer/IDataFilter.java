@@ -3,8 +3,8 @@ package pt.componentes.dataorganizer;
 import java.util.List;
 
 /**
- *DataFilter tem como função filtrar os dados da tabela, retornando um vetor das doenças únicas da tabela
- *e uma matriz de frequência de sintomas, que serão utilizados na construção da árvore.
+ *DataFilter tem como funcao filtrar os dados da tabela, retornando um vetor das doencas unicas da tabela
+ *e uma matriz de frequencia de sintomas, que serao utilizados na construcao da arvore.
  *
  *@author SerodioJ
 */

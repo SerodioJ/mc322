@@ -1,15 +1,15 @@
 package pt.componentes.diagnosticcompleter;
 
+import pt.componentes.node.*;
+import java.util.List;
+
 /**
- *DiagnosticCompleter tem como função completar os nós-folha de uma árvore de diagnóstico
- *que não possuem diagnóstico.
+ *DiagnosticCompleter tem como funcao completar os nos-folha de uma arvore de diagnostico
+ *que nao possuem diagnostico.
  *
  *@author SerodioJ
  */
 
-import pt.componentes.node.Tree;
-
 public interface IDiagnosticCompleter{
-	public Tree dataRunner(Tree treeNode, String[][]symptomFrequency);
-	public void dataFiller(Tree treeNode, String[][]symptomFrequency);
+	List<Integer> dataFiller(Node node, Tree tree);
 }

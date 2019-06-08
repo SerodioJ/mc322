@@ -1,5 +1,9 @@
 package pt.componentes.node;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.io.Serializable;
+import java.io.PrintWriter;
 
 /**
  *Nó da árvore
@@ -7,43 +11,36 @@ package pt.componentes.node;
  *@author SerodioJ
  */
 
-
-import java.util.ArrayList;
-import java.util.List;
-import java.io.Serializable;
-import java.io.PrintWriter;
-
-
 public class Node implements Serializable{
 	private Node esquerdo, direito;
-	private int symptom;
+	private int symptom, filledPower;
 	private boolean diagnostico, filled;
 	private List<Integer> diseases;
-	private String[] path;
+	private int[] path;
 	
-	Node(int symptom, String[] path, boolean esq, int previous){
+	Node(int symptom, int[] path, boolean esq, int previous){
 		this.symptom = symptom;
 		if(previous == -1)
 		    this.path = path;
 		else{
 		    this.path = path.clone();
 		    if (esq)
-		        this.path[previous] = "1";
+		        this.path[previous] = 1;
 		    else
-		        this.path[previous] = "0";
+		        this.path[previous] = 0;
         }
 	}
 	
-	Node (boolean diagnostico, String[] path, boolean esq, int previous){
+	Node (boolean diagnostico, int[] path, boolean esq, int previous){
 	    this.diagnostico = diagnostico;
         if(previous == -1)
             this.path = path;
         else{
             this.path = path.clone();
             if (esq)
-                this.path[previous] = "1";
+                this.path[previous] = 1;
             else
-                this.path[previous] = "0";
+                this.path[previous] = 0;
         }
 	}
 	
@@ -60,6 +57,10 @@ public class Node implements Serializable{
 		return this.symptom;
 	}
 
+	public int getFilledPower(){
+		return this.filledPower;
+	}
+
 	public boolean getDiagnostico(){
 		return this.diagnostico;
 	}
@@ -68,7 +69,7 @@ public class Node implements Serializable{
 		return this.filled;
 	}
 
-    	public String[] getPath(){ return this.path; }
+	public int[] getPath(){ return this.path; }
 
 	public List<Integer> getDiseases(){
 		return this.diseases;
@@ -96,18 +97,24 @@ public class Node implements Serializable{
 		this.diseases = diseases;
 	}
 
-	public void setPath(String[] path) { this.path = path; }
+	public void setPath(int[] path) { this.path = path; }
 
-	public void serializa(PrintWriter escritor, int numero){
+	//Aumenta o grau de completamento no DiagnosticCompleter
+	public void increaseFilledPower(){
+		this.filledPower++;
+	}
+
+	//Método de serialização DAO para verificar o estado do nó
+	@SuppressWarnings("WeakerAccess")
+	public void DAO(PrintWriter escritor, int numero){
 		escritor.println("@Node "+ numero);
 		escritor.println("Sintoma: " + this.symptom);
 		escritor.println("Diagnostico: " + this.diagnostico);
-		if (this.diseases == null)
-			escritor.println("Doencas: null");
-		else
-			escritor.println("Doencas: "+ this.diseases);
-		List<String> caminho = new ArrayList<>();
-		for(String teste:this.path){
+		escritor.println("Filled: " + this.filled);
+		escritor.println("FilledPower: " + this.filledPower);
+		escritor.println("Doencas: "+ this.diseases);
+		List<Integer> caminho = new ArrayList<>();
+		for(int teste:this.path){
 			caminho.add(teste);
 		}
 		escritor.println("Path: " + caminho);

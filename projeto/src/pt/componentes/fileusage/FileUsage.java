@@ -11,9 +11,11 @@ import java.util.List;
 import pt.componentes.node.Tree;
 
 /**
+ *FileUsage seraliza a arvore junto com os nos.
  *
  * @author leonardolivraremartins
  */
+
 public class FileUsage implements IFileUsage{
     
     //Serializa a lista de doencas, a matriz de frequencia e a arvore de diagnosticos
@@ -36,6 +38,7 @@ public class FileUsage implements IFileUsage{
 
     //Deserializa a lista de doencas
     @Override
+    @SuppressWarnings("unchecked")
     public List getDiseases() {
         List<String> diseases;
         diseases = (ArrayList<String>) deserialize("diseases.txt");

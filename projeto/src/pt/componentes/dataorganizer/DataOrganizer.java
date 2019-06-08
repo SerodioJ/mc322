@@ -1,19 +1,21 @@
 package pt.componentes.dataorganizer;
 
-/**
- *Plantar um árvore nunca foi tão complicado.
- *
- *@authors SerodioJ,leonardolivraremartins.
- */
-
 import pt.componentes.node.*;
-//import pt.componentes.diagnosticcompleter.*;
+import pt.componentes.diagnosticcompleter.DiagnosticCompleter;
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ *Classe que analisa os dados da matriz e constroe uma arvore.
+ *
+ *@author SerodioJ,leonardolivraremartins.
+ */
 
 public class DataOrganizer implements ITreeMaker, IDataFilter {
 
 	/* Implementação de IDataFilter */
+	//Retorna as doenças que ocorrem na matriz
+	@Override
 	public List<String> diseaseFilter(String[][] instances) {
 		List<String> diseases = new ArrayList<>();
 		int indexDisease;
@@ -28,6 +30,8 @@ public class DataOrganizer implements ITreeMaker, IDataFilter {
 		return diseases;
 	}
 
+	//Retorna uma matriz de frequência dos sintomas em relação as doenças
+	@Override
 	public int[][] symptomFilter(String[][] instances, List diseases) {
 		int[][] frequencyMatrix = new int[instances[0].length - 1][diseases.size() + 1];
 		int index, diseaseIndex = instances[0].length-1;
@@ -47,13 +51,16 @@ public class DataOrganizer implements ITreeMaker, IDataFilter {
 
 	/*Implementação de ITreeMaker*/
 	//Método de construção da árvore
+	@Override
 	public Tree treeMaker(List<String> diseases, int[][] symptomFrequency, String[][] instances) {
 		NodeCreator nC = new NodeCreator();
 		List<Integer> keySymptoms = unique(symptomFrequency);
-        String[] path = new String[symptomFrequency.length];
-        for (int symptom : keySymptoms)
-        	path[symptom] = "0";
-		Tree diagnosticTree = new Tree(treeSkeleton(symptomFrequency.length, 0, -1, nC, keySymptoms, path, false), keySymptoms, diseases, priority(symptomFrequency, keySymptoms));
+        int[] path = new int[symptomFrequency.length];
+        for (int i = 0; i < path.length; i++)
+        	if (keySymptoms.indexOf(i) == -1)
+        		path[i] = -1;
+        List<Integer> priorities = priority(symptomFrequency, keySymptoms);
+		Tree diagnosticTree = new Tree(treeSkeleton(priorities.size(), 0, -1, nC, priorities, path, false), keySymptoms, diseases, priorities);
 		diagnosticTree.setRoot(treeRunner(diagnosticTree.getRoot(), diagnosticTree, instances));
 		return diagnosticTree;
 	}
@@ -74,15 +81,28 @@ public class DataOrganizer implements ITreeMaker, IDataFilter {
 		return unique;
 	}
 
+	//Compara dois vetores, sendo um deles de inteiros e o outro de String.
+	private boolean comparePath(int[] path1, String[] path2){
+		boolean equal = true;
+		int tradutor;
+		for (int i = 0; i < path1.length; i++){
+			if (path2[i].equals("1") || path2[i].equals("t"))
+				tradutor = 1;
+			else
+				tradutor = 0;
+			if (tradutor != path1[i])
+				equal = false;
+		}
+		return equal;
+	}
+
 	//Método recursivo para construir a árvore de diagnóstico.
-	private Node treeSkeleton(int symptoms, int current, int previous, NodeCreator nC, List<Integer> keySymptoms, String[] path, boolean esq) {
+	private Node treeSkeleton(int symptoms, int current, int previous, NodeCreator nC, List<Integer> priority, int[] path, boolean esq) {
 		if (current == symptoms)
 			return nC.createNode(true, path, esq, previous);
-		if (keySymptoms.indexOf(current) != -1)
-			return treeSkeleton(symptoms, current+1, previous, nC, keySymptoms, path, esq);
-		Node node = nC.createNode(current, path, esq, previous);
-		node.setDireito(treeSkeleton(symptoms, current+1, current, nC, keySymptoms, node.getPath(), false));
-		node.setEsquerdo(treeSkeleton(symptoms, current+1, current, nC, keySymptoms, node.getPath(), true));
+		Node node = nC.createNode(priority.get(current), path, esq, previous);
+		node.setDireito(treeSkeleton(symptoms, current+1, priority.get(current), nC, priority, node.getPath(), false));
+		node.setEsquerdo(treeSkeleton(symptoms, current+1, priority.get(current), nC, priority, node.getPath(), true));
 		return node;
 	}
 
@@ -109,14 +129,15 @@ public class DataOrganizer implements ITreeMaker, IDataFilter {
 
 	//Método para comparar o caminho da árvore com a tabela de referência. Usando o vetor priority para fazer o menor número de comparações.
 	private List<Integer> diagnostic(Tree tree, Node current, String[][] instances){
+		DiagnosticCompleter DC = new DiagnosticCompleter();
 		List<Integer> diagnostic = new ArrayList<>();
 		for (String[] instance : instances)
-			if (current.getPath() == instance && diagnostic.indexOf(tree.getDiseases().indexOf(instance[instances[0].length])) == -1)
-				diagnostic.add(tree.getDiseases().indexOf(instance[instances[0].length]));
-		/*if (diagnostic == null){      Fazer DataCompleter
+			if (comparePath(current.getPath(), instance) && diagnostic.indexOf(tree.getDiseases().indexOf(instance[instances[0].length-1])) == -1)
+				diagnostic.add(tree.getDiseases().indexOf(instance[instances[0].length-1]));
+		if (diagnostic.isEmpty()){
 			current.setFilled(true);
-			diagnostic = DiagnosticCompleter.dataFiller();
-		}*/
+			diagnostic = DC.dataFiller(current, tree);
+		}
 		return diagnostic;
 
 	}
@@ -131,5 +152,4 @@ public class DataOrganizer implements ITreeMaker, IDataFilter {
 		current.setEsquerdo(treeRunner(current.getEsquerdo(), tree, instances));
 		return current;
 	}
-
 }
