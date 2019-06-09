@@ -26,7 +26,7 @@ public class tutorial_como_usar_arvore {
 		Tree tree = dataOr.treeMaker(diseases, symptomFrequency, instances);
 		
 		/*Serializa a arvore para uma maior visualizacao de cada node dela.
-		 *O primeiro parametro eh o nome do arquivo que vc quer salva-la e o segundo eh
+		 *O primeiro parametro eh o nome do arquivo onde vc quer salva-la e o segundo eh
 		 *o diretorio que vc quer salvar o arquivo*/
 		tree.DAO("tree", "../projetoFinal");
 		
