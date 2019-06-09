@@ -33,6 +33,13 @@ public class tutorial_como_usar_arvore {
 		//Retorna a lista(List<String>) das doencas obtidas pelo metodo diseaseFilter(instances)
 		tree.getDiseases();
 		
+		//Retorna a lista(List<String>) de sintomas sao caracteristicos de uma doenca
+		tree.getKey();
+		
+		//Retorna a lista(List<String>) da ordem dos sintomas na arvore
+		tree.getPriority();
+		
+		
 		//Pega a raiz da arvore
 		Node raiz = tree.getRoot();
 		
