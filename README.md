@@ -32,7 +32,7 @@
 |------|--------|
 |`treeMaker`|Recebe o vetor de doenças e a matriz de frequência de sintomas e retorna uma árvore de diagnóstico (Tree), cujos nós internos são perguntas e os nós folhas são os diagnósticos finais. A árvore consiste de um sintoma por nível, ou seja, no nível 1 da arvore temos um mesmo sintoma em todos os nós desse nível e assim por diante. Nos nós folhas da arvore temos um verificador .getDiagnostic() que retorna true se o nó é folha e possui um diagnostico, então esse nó possui um vetor doenças, o qual contem todas as doenças que o paciente possuí (.getDiseases() retorna o vetor de doenças, onde cada posição desse vetor possui o index da doença na lista de doenças gerada pelo método diseaseFilter).|
 
-### Classe Tree
+### Classe Tree (pt.clubedohardware.node.Tree)
 |Método| Objetivo|
 |------|--------|
 |`getRoot`|Retorna a raíz da árvore (Node).|
@@ -45,7 +45,7 @@
 |`toHeap`|Retorna uma List(Node) que é a árvore no formato de Heap.|
 |`DAO`|Recebe duas Strings sendo a primeira o nome do arquivo de saída e o segundo o nome do diretório em que será salvo o arquivo. O método serializa a árvore em um formato que é legível para o usuário, a fim de verificar o se o estado da árvore está correto além de possuir dados sobre a construção da árvore.|
 
-### Classe Node
+### Classe Node (pt.clubedohardware.node.Node)
 |Método| Objetivo|
 |------|--------|
 |`getEsquerdo`|Retorna o filho esquerdo (Node) do nó.|
