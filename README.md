@@ -51,7 +51,7 @@
 |`getEsquerdo`|Retorna o filho esquerdo (Node) do nó.|
 |`getDireiro`|Retorna o filho direito (Node) do nó.|
 |`getSymptom`|Retorna o inteiro que corresponde ao sintoma na no vetor String[] attributes do DatSet.|
-|`getFilledPower`|Retorna o grau de preenchimento (int) utilizado pelo DiagnosticCompleter.|
+|`getFilledPower`|Retorna o grau de preenchimento (int) utilizado pelo DiagnosticCompleter. Quanto maior for o FilledPower, menor é a precisão do diagnóstico.|
 |`getDiagnostico`|Retorna um (boolean) indicando se o nó é um nó folha (possui diagnóstico) ou não. |
 |`getFilled`|Retorna um (boolean) indicando se o nó foi preenchido pelo DiagnosticCompleter.|
 |`getPath`|Retorna um (int[]) que corresponde ao caminho percorrido na árvore.|
