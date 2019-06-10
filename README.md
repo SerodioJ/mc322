@@ -30,9 +30,36 @@
 ### Interface ITreeMaker
 |Método| Objetivo|
 |------|--------|
-|`treeMaker`|Recebe o vetor de doenças e a matriz de frequência de sintomas e retorna uma árvore de diagnóstico, cujos nós internos são perguntas e os nós folhas são os diagnósticos finais. A árvore consiste de um sintoma por nível, ou seja, no nível 1 da arvore temos um mesmo sintoma em todos os nós desse nível e assim por diante. Nos nós folhas da arvore temos um verificador .getDiagnostic() que retorna true se o nó é folha e possui um diagnostico, então esse nó possui um vetor doenças, o qual contem todas as doenças que o paciente possuí (.getDiseases() retorna o vetor de doenças, onde cada posição desse vetor possui o index da doença na lista de doenças gerada pelo método diseaseFilter).|
+|`treeMaker`|Recebe o vetor de doenças e a matriz de frequência de sintomas e retorna uma árvore de diagnóstico (Tree), cujos nós internos são perguntas e os nós folhas são os diagnósticos finais. A árvore consiste de um sintoma por nível, ou seja, no nível 1 da arvore temos um mesmo sintoma em todos os nós desse nível e assim por diante. Nos nós folhas da arvore temos um verificador .getDiagnostic() que retorna true se o nó é folha e possui um diagnostico, então esse nó possui um vetor doenças, o qual contem todas as doenças que o paciente possuí (.getDiseases() retorna o vetor de doenças, onde cada posição desse vetor possui o index da doença na lista de doenças gerada pelo método diseaseFilter).|
 
+### Classe Tree
+|Método| Objetivo|
+|------|--------|
+|`getRoot`|Retorna a raíz da árvore (Node).|
+|`getKeySymptoms`|Retorna a List(Integer) de sintomas que aparecem em apenas uma doença.|
+|`getKeyCorrespondent`|Retorna a List(Integer) na qual o inteiro na posição X representa a doença que é o diagnóstico do sintoma na posição X da List(Integer) keySymptoms, que pode ser acessada com getKeySymptoms().|
+|`getKSDiagnostic`|Recebe o inteiro que representa o sintoma e retorna um inteiro que é a posição na List(String) de doenças, sendo a doença nessa posição o diagnóstico.|
+|`getDiseases`|Retorna uma List(String) de doenças.|
+|`getPriority`|Retorna a List(Integer) de sintomas na ordem que aparecem na árvore.|
+|`setRoot`|Recebe um nó (Node) como parâmetro e muda o atributo root para esse novo valor.|
+|`toHeap`|Retorna uma List(Node) que é a árvore no formato de Heap.|
+|`DAO`|Recebe duas Strings sendo a primeira o nome do arquivo de saída e o segundo o nome do diretório em que será salvo o arquivo. O método serializa a árvore em um formato que é legível para o usuário, a fim de verificar o se o estado da árvore está correto além de possuir dados sobre a construção da árvore.|
 
+### Classe Node
+|Método| Objetivo|
+|------|--------|
+|`getEsquerdo`|Retorna o filho esquerdo (Node) do nó.|
+|`getDireiro`|Retorna o filho direito (Node) do nó.|
+|`getSymptom`|Retorna o inteiro que corresponde ao sintoma na no vetor String[] attributes do DatSet.|
+|`getFilledPower`|Retorna o grau de preenchimento (int) utilizado pelo DiagnosticCompleter.|
+|`getDiagnostico`|Retorna um (boolean) indicando se o nó é um nó folha (possui diagnóstico) ou não. |
+|`getFilled`|Retorna um (boolean) indicando se o nó foi preenchido pelo DiagnosticCompleter.|
+|`getPath`|Retorna um (int[]) que corresponde ao caminho percorrido na árvore.|
+|`getDiseases`|Retorna uma List(Integer) de possíveis doenças para esse quadro de sintomas.|
+|`sets`|Métodos sets para cada get acima.|
+|`DAO`|Recebe um (PrintWriter) e um (int) que é o índice do nó no heap e então serializa o nó. Esse método é chamado pelo método DAO da árvore.|
+
+Exemplo de uso: https://github.com/SerodioJ/mc322/blob/master/projeto/jarfiles/tutorial_como_usar_arvore.java
 
 ## Componente UserInterface
 |Campo | Valor|
@@ -60,19 +87,20 @@ Exemplo de uso: https://github.com/SerodioJ/mc322/blob/master/projeto/jarfiles/T
 |------|--------|
 |Classe|pt.clubedohardware.fileusage.FileUsage|
 |Autores|Leonardo Livrare|
-|Objetivo|Salva dados obtidos pelo programa como a árvore diagnóstico e tabelas para poderem ser utilizados novamente pelo programa para não ter que reprocessar todos os dados novamente.|
+|Objetivo|Salva dados obtidos pelo programa como a árvore diagnóstico, tabelas e path do arquivo CSV utilizado para poderem ser utilizados novamente pelo programa, não sendo necessário reprocessar todos os dados.|
 |Interface|IFileUsage|
 
 
 ### Interface IFileUsage
 |Método| Objetivo|
 |------|--------|
-|`save`| Possuí 3 parametros, o primeiro é a lista de doenças(obtida pelo método diseaseFilter(instances) do DataOrganizer), o segundo é a matriz de frequencia (obtida pelo método symptomFilter(instances, diseases) do DataOrganizer) e o terceiro é a árvore de diagnóstico (também obtida pelo DataOrganizer). Esse método salva as informações desses 3 dados passados como parametro. Vale ressaltar que os arquivos da serialização ficam na pasta do projeto num arquivo chamado SerializedData. |
-|`readDiseases`| Lê o arquivo texto e retorna o vetor de doenças |
-|`readFrequency`| Lê o arquivo texto e retorna a matriz de frequência dos sintomas|
-|`readTree`| Lê o arquivo texto e retorna a árvore de diagnóstico|
+|`save`| Pode receber 4 ou 2 parâmetros. No primeiro caso, o primeiro parâmetro é a lista de doenças(obtida pelo método diseaseFilter(instances) do DataOrganizer), o segundo é a matriz de frequencia (obtida pelo método symptomFilter(instances, diseases) do DataOrganizer), o terceiro é a árvore de diagnóstico (também obtida pelo DataOrganizer) e o último é a path do CSV usado. Esse método salva as informações desses 4 dados passados como parâmetros. Vale ressaltar que os arquivos da serialização ficam na pasta do projeto num arquivo chamado SerializedData/_NOMEdoCSV_. Com 2 parâmetro, o primeiro deve ser a árvore e o segundo a path do arquivo CSV, salvando apenas a árvore. |
+|`getDiseases`| Recebe o nome da pasta dentro de SerializedbleData e retorna a List(String) de doenças |
+|`getFrequency`| Recebe o nome da pasta dentro de SerializedbleData e retorna a matriz de frequência (int[][]) dos sintomas|
+|`getTree`| Recebe o nome da pasta dentro de SerializedbleData e retorna a árvore de diagnóstico (Tree)|
+|`getPathCSV`| Recebe o nome da pasta dentro de SerializedbleData e retorna a path (String) do arquivo CSV que foi base para geração dos dados|
 
-
+Exemplo de uso: https://github.com/SerodioJ/mc322/blob/master/projeto/jarfiles/tutorial_fileUsage.java
 
 ## Componente DiagnosticCompleter
 |Campo | Valor|
@@ -86,5 +114,4 @@ Exemplo de uso: https://github.com/SerodioJ/mc322/blob/master/projeto/jarfiles/T
 ### Interface IDiagnosticCompleter
 |Método| Objetivo|
 |------|--------|
-|`dataRunner`| Recebe como parâmetros a árvore e a matriz de frequência e percorre a árvore procurando por nós folha sem diagnósticos quando encontra um desses nós chama o método `dataFiller`|
-|`dataFiller`|  Recebe como parâmetros a árvore e a matriz de frequência e completa o nó com melhor diagnóstico. |
+|`dataFiller`|  Recebe como parâmetros a árvore (Tree) e o nó atual (Node) e retorna uma List(Integer) contendo os possíveis diagnoósticos. |
