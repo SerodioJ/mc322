@@ -114,7 +114,11 @@ Exemplo de uso: https://github.com/SerodioJ/mc322/blob/master/projeto/jarfiles/t
 ### Interface IDiagnosticCompleter
 |Método| Objetivo|
 |------|--------|
-|`dataFiller`|  Recebe como parâmetros a árvore (Tree) e o nó atual (Node) e retorna uma List(Integer) contendo os possíveis diagnoósticos. |
-Os Arquivos JAR dos componemtes podem ser encontrados em:
+|`dataFiller`|  Recebe como parâmetros a árvore (Tree) e o nó atual (Node) e retorna uma List(Integer) contendo os possíveis diagnoósticos.|
+
+
+Os arquivos JAR dos componemtes podem ser encontrados em:
+
 https://github.com/SerodioJ/mc322/tree/master/projeto/jarfiles
+
 https://github.com/SerodioJ/ComponentesMC322
