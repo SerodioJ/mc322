@@ -17,7 +17,7 @@
 |Classe|pt.clubedohardware.dataorganizer.DataOrganizer|
 |Autores|João Seródio, Leonardo Livrare|
 |Objetivo|Organizar os dados da tabela para facilitar o diagnóstico|
-|Interface|IDataFilter, ITreeMaker|
+|Interface|IDataOrganizer(IDataFilter + ITreeMaker)|
 
 
 ### Interface IDataFilter
