@@ -33,8 +33,15 @@ public class tutorial_como_usar_arvore {
 		//Retorna a lista(List<String>) das doencas obtidas pelo metodo diseaseFilter(instances)
 		tree.getDiseases();
 		
-		//Retorna a lista(List<String>) de sintomas sao caracteristicos de uma doenca
-		tree.getKey();
+		//Retorna a lista(List<String>) de sintomas que aparecem em apenas uma doenca
+		tree.getKeySymptoms();
+		
+		//Retorna a lista(List<String>) das doenças que possuem sintomas característicos sendo que está ligado a lista de sintomas
+		//ou seja, a doença na posição 0 dessa lista, corresponde ao sintoma na posição 0 da lista acima.
+		tree.getKeyCorrespondent();
+		
+		//Retorna o diagnostico de um sintoma característico(keySymptom)
+		tree.getKSDiagnostic(int key);
 		
 		//Retorna a lista(List<String>) da ordem dos sintomas na arvore
 		tree.getPriority();
